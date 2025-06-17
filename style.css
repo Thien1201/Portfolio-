@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(-45deg, #b0b0b0, #c8c8c8, #dcdcdc, #e0e0e0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  text-align: center;
+  padding: 50px 20px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header h1 {
+  font-size: 3em;
+  animation: flicker 2s infinite;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+  }
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  background: #888;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+nav ul li {
+  margin: 10px 20px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+}
+section {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ABOUT ===== */
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+}
+.about-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ===== PROJECT ===== */
+.project {
+  background: #fff;
+  padding: 20px;
+  border-left: 5px solid #aaa;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== FORM ===== */
+form label {
+  display: block;
+  margin-top: 1rem;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background: #888;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form button:hover {
+  background: #666;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #999;
+  color: white;
+  padding: 20px 50px;
+  margin-top: 40px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+}
+
+/* ===== SỞ THÍCH (HOBBIES) ===== */
+#so-thich {
+  padding: 40px 20px;
+  background: #f9f8ff;
+  border-radius: 12px;
+  margin-top: 40px;
+  max-width: 600px;
+  text-align: left;
+}
+
+#so-thich h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+.so-thich-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hover-group {
+  position: relative;
+  background: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 260px;
+}
+.hover-group:hover {
+  background: #dddddd;
+  transform: translateX(6px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+.hover-sublist {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 105%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  animation: fadeIn 0.3s ease forwards;
+  opacity: 0;
+  pointer-events: none;
+}
+.hover-group:hover .hover-sublist {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+.hover-sublist li {
+  list-style: none;
+  padding: 6px 0;
+  font-size: 15px;
+  color: #333;
+  border-bottom: 1px dashed #ddd;
+  transition: all 0.3s ease;
+}
+.hover-sublist li:last-child {
+  border-bottom: none;
+}
+.hover-sublist li:hover {
+  background-color: #f0f0f0;
+  color: #666;
+  border-radius: 6px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .hover-group {
+    width: 100%;
+    font-size: 16px;
+  }
+  .hover-sublist {
+    left: 100%;
+    min-width: 180px;
+  }
+}
+/* Style cho thanh slider ngôn ngữ */
+.slider {
+  width: 300px;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, white 0%, red 100%);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #444;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #444;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
