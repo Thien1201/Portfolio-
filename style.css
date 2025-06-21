@@ -116,7 +116,7 @@ body {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-image: url('images/avatar.png');
+  background-image: url('./anh/anh0.jpg');
   background-size: cover;
   background-position: center;
   border: 6px solid #00f0ff;
@@ -162,7 +162,7 @@ body {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-image: url('images/avatar.png'); /* đổi thành ảnh của bạn */
+  background-image: url('./anh/anh0.jpg'); /* đổi thành ảnh của bạn */
   background-size: cover;
   background-position: center;
   border: 6px solid #00f0ff;
